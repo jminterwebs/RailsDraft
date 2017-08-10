@@ -1,7 +1,7 @@
-require 'httparty'
+
 class PlayersController < ApplicationController
 
   def index
-    byebug
+    @players = Player.all
   end
 end
