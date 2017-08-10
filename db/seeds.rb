@@ -38,5 +38,4 @@ player_seed(400)
 player_seed(500)
 end
 
-
 seed_db
