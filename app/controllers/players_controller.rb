@@ -2,7 +2,7 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Player.all
+    render json: Player.all
   end
 
 
