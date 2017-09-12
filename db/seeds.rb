@@ -1,12 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'httparty'
-
 
 def player_seed(offset)
     url = "http://api.fantasy.nfl.com/v1/players/editordraftranks?count=100&format=json&offset=#{offset}"
@@ -26,9 +18,9 @@ def player_seed(offset)
           )
       end
     end
-
 end
 
+#API only limits request to 100 players. Must Call multiply times to get all players
 def seed_db
 player_seed(0)
 player_seed(100)
@@ -37,5 +29,20 @@ player_seed(300)
 player_seed(400)
 player_seed(500)
 end
-
 seed_db
+
+def add_projected_stats
+  url = "http://api.fantasy.nfl.com/v1/players/stats?statType=seasonProjectedStats&season=2017"
+
+  response = HTTParty.get(url)
+  projected_hash = response.parsed_response
+  projected_hash = projected_hash["players"]
+
+  projected_hash.map do |projected|
+    if Player.find_by(player_id: projected["id"])
+       player = Player.find_by(player_id: projected["id"])
+       player.update(projected_points: projected["seasonProjectedPts"])
+    end
+  end
+end
+add_projected_stats
