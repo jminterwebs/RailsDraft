@@ -11,7 +11,7 @@ def player_seed(offset)
 
         Player.create(first_name: player["firstName"],
           last_name: player["lastName"],
-          player_id: player["id"],
+          unique_player_id: player["id"],
           teamAbbr: player["teamAbbr"],
           rank: player["rank"],
           position: player["position"]
