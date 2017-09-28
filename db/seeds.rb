@@ -39,8 +39,8 @@ def add_projected_stats
   projected_hash = projected_hash["players"]
 
   projected_hash.map do |projected|
-    if Player.find_by(player_id: projected["id"])
-       player = Player.find_by(player_id: projected["id"])
+    if Player.find_by(unique_player_id: projected["id"])
+       player = Player.find_by(unique_player_id: projected["id"])
        player.update(projected_points: projected["seasonProjectedPts"])
     end
   end
