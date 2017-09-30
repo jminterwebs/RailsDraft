@@ -1,7 +1,7 @@
 class LeaguesController < ApplicationController
 
   def index
-
+    render json: League.all
   end
 
   def show
@@ -13,7 +13,7 @@ class LeaguesController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def update
