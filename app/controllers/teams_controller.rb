@@ -1,11 +1,18 @@
 class TeamsController < ApplicationController
 
   def index
-    render json: Team.all
+    
+    if params[:league_id]
+
+      @teams = League.find(params[:league_id]).teams.all
+      render json: @teams
+    else
+      render json: Team.all
+    end
   end
 
   def show
-
+    render json: Team.find(params[:id])
   end
 
   def new

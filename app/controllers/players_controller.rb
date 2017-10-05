@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
   end
 
   def update
-    @player.update(team_id:params[:team_id])
+    # @player.update(team_id:params[:team_id])
   end
 
 

@@ -4,6 +4,7 @@ class League < ApplicationRecord
   has_many :players, through: :player_leagues
 
   accepts_nested_attributes_for :teams
+  accepts_nested_attributes_for :players
 
 
 

@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 20170928011441) do
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name"
-    t.integer  "draft_round"
-    t.integer  "draft_spot"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "draft_round", default: 1
+    t.integer  "draft_spot",  default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "player_leagues", force: :cascade do |t|
