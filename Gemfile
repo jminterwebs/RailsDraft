@@ -34,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'rack-cors', :require => 'rack/cors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.8.0'
+
 gem 'httparty'
 gem 'foreman', '~> 0.82.0'
 
