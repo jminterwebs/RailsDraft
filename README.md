@@ -1,24 +1,10 @@
-# README
+# Back-End to my React Fantasy draft board.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+This is the rails back-end to my React draft board. 
 
-* Ruby version
+Todo:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clean up Active Model Serializer.
+  - Current sending to much data per request. Need to creat some custom serializers to cut it down.
+2. Add Authentication
