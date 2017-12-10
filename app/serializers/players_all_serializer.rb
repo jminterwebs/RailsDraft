@@ -1,3 +1,3 @@
 class PlayersAllSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :full_name, :unique_player_id
 end
