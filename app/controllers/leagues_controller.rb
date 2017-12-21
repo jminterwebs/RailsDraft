@@ -2,11 +2,11 @@ class LeaguesController < ApplicationController
   before_action :set_league, only: :show
 
   def index
-    render json: League.all
+    render json: League.all, each_serializer: LeaguesAllSerializer
   end
 
   def show
-    
+
     render json: @league
   end
 
