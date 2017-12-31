@@ -23,9 +23,9 @@ class LeaguesController < ApplicationController
 
     if @league.save
       render json: {
-        status: 202,
+        status: 308,
         message: "league created",
-        league_id: @league.id
+        league: @league
       }.to_json
     end
 
