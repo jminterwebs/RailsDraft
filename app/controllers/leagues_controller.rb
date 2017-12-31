@@ -17,9 +17,19 @@ class LeaguesController < ApplicationController
   end
 
   def create
+    puts league_params
     @league = League.new(league_params)
     @league.players << Player.all
-    @league.save
+
+    if @league.save
+      render json: {
+        status: 202,
+        message: "league created",
+        league_id: @league.id
+      }.to_json
+    end
+
+
   end
 
   def update
