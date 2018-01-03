@@ -46,3 +46,16 @@ def add_projected_stats
   end
 end
 add_projected_stats
+
+
+def create_dummy_league
+  @teams = []
+
+  10.times do |i|
+    @teams << Team.create(name:"Team #{i}")
+  end
+  League.create(name: "Testing 2", teams: @teams)
+
+end
+
+create_dummy_league

@@ -3,7 +3,7 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :update]
 
   def index
-    render json: Player.all
+    render json: Player.all, each_serializer: PlayersAllSerializer
   end
 
 

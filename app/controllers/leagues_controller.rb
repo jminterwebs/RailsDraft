@@ -2,11 +2,11 @@ class LeaguesController < ApplicationController
   before_action :set_league, only: :show
 
   def index
-    render json: League.all
+    render json: League.all, each_serializer: LeaguesAllSerializer
   end
 
   def show
-    
+
     render json: @league
   end
 
@@ -17,9 +17,19 @@ class LeaguesController < ApplicationController
   end
 
   def create
+    puts league_params
     @league = League.new(league_params)
     @league.players << Player.all
-    @league.save
+
+    if @league.save
+      render json: {
+        status: 308,
+        message: "league created",
+        league: @league
+      }.to_json
+    end
+
+
   end
 
   def update
