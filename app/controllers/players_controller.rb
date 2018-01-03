@@ -8,6 +8,7 @@ class PlayersController < ApplicationController
 
 
   def show
+    puts @player
     render json: @player
   end
 
